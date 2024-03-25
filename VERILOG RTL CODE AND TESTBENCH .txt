@@ -1,0 +1,41 @@
+
+VERILOG RTL SCHEMATIC
+
+DESIGN CODE :-
+
+module basicgatesusingdataflow(
+    input a,b,
+  output andgateout,orgateout,yesgateout,notgateout,nandgateout,xorgateout,
+norgateout,xnorgateout
+  );
+  
+    //DATAFLOW
+    assign andgateout = a&b;   //And Gate
+    assign orgateout =  a|b;    //or Gate
+    assign yesgateout = (a);    //yes gate
+    assign notgateout = !(a);   //Not Gate
+    assign nandgateout = !(a&b);  //Nand Gate
+    assign xorgateout = a^b;    //Xor Gate
+    assign norgateout = !(a|b);   //Nor Gate
+    assign xnorgateout = !(a^b);  //Xnor Gate
+    
+endmodule
+
+TEST BENCH:-
+
+module basicgateusingdataflow_tb();
+reg a;
+reg b;
+wire andgateout,orgateout,yesgateout,notgateout,nandgateout,xorgateout,norgateout,xnorgateout;
+
+Basicgatesusingdataflow uut(.a(a),.b(b),.andgateout(andgateout),.orgateout(orgateout),.yesgateout(yesgateout),.
+notgateout(notgateout),.nandgateout(nandgateout),.xorgateout(xorgateout),.norgateout(norgateout),.xnorgateout(xnorgateout));
+
+initial
+    begin
+        a=0;b=0;#100;
+        a=0;b=1;#100;
+        a=1;b=0;#100;
+        a=1;b=1;#100;  
+    end
+endmodule

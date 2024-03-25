@@ -1,0 +1,44 @@
+VERILOG RTL CHALLENGE
+
+DESIGN CODE :-
+
+// Design Name: Gate Level
+// Module Name: basicgatesusinggatelevel
+
+
+module basicgatesusinggatelevel(
+    input a,b,
+    output andout,orout,notout,xorout,nandout,norout,xnorout
+    );
+    
+    and(andout,a,b);
+    or(orout,a,b);
+    not(notout,a);
+    xor(xorout,a,b); 
+    nand(nandout,a,b);
+    nor(norout,a,b);
+    xnor(xnorout,a,b);
+    
+endmodule
+
+TEST BENCH :-
+
+module basicgatesusinggatelevel_tb();
+reg a;
+reg b;
+wire andout,orout,notout,xorout,nandout,norout,xnorout;
+basicgatesusinggatelevel uut(.a(a),.b(b),.andout(andout),.orout(orout),.
+
+notout(notout),.xorout(xorout),.nandout(nandout),.norout(norout),.xnorout(xnorout));
+
+initial 
+    begin
+    
+        a=0;b=0;#100;
+        a=0;b=1;#100;
+        a=1;b=0;#100;
+        a=1;b=1;#100;
+        
+    end
+
+endmodule
